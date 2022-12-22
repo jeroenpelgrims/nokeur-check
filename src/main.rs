@@ -30,10 +30,6 @@ fn main() {
 
 fn send_email(nokeur: f64) {
     let smtp_server = var("SMTP_SERVER").expect("Couldn't read smtp server");
-    let smtp_port = var("SMTP_PORT")
-        .expect("Couldn't read smtp port")
-        .parse::<u16>()
-        .expect("Couldn't parse smtp port");
     let smtp_user = var("SMTP_USER").expect("Couldn't read smtp user");
     let smtp_password = var("SMTP_PASSWORD").expect("Couldn't read smtp password");
     let smtp_sender = var("SMTP_SENDER").expect("Couldn't read sender");
