@@ -21,8 +21,7 @@ fn main() {
             if (last > threshold && new < threshold) || (last < threshold && new < last) {
                 history::add(new);
                 send_email(new);
-            }
-            if last < threshold && new > threshold {
+            } else if last < threshold && new > threshold {
                 history::add(new);
             }
         }
@@ -48,7 +47,6 @@ fn send_email(nokeur: f64) {
     let creds = Credentials::new(smtp_user, smtp_password);
     let mailer = SmtpTransport::relay(smtp_server.as_str())
         .unwrap()
-        .port(smtp_port)
         .credentials(creds)
         .build();
 
